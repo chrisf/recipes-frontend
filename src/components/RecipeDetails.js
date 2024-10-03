@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 
 export default function RecipeDetails(props) {
   if (props.recipe === null) {
@@ -14,6 +14,10 @@ export default function RecipeDetails(props) {
     <Box>
       <Typography variant="h5">{title}</Typography>
       <Typography variant="body">{description}</Typography>
+
+      <Divider />
+      <Box component="img" src={image} sx={{ maxHeight: "600px" }} />
+      <Divider />
 
       <Typography variant="h6">Ingredients</Typography>
       <Typography variant="body">{ingredients}</Typography>
