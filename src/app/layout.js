@@ -10,6 +10,7 @@ import "./globals.css";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 
+import ApolloAppProvider from "@/components/ApolloAppProvider";
 import { ThemeProvider } from "@mui/material/styles";
 import { Roboto } from "next/font/google";
 import Header from "../components/Header";
@@ -34,8 +35,10 @@ export default function RootLayout({ children }) {
         <CssBaseline />
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            <Header />
-            {children}
+            <ApolloAppProvider>
+              <Header />
+              {children}
+            </ApolloAppProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
