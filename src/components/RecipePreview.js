@@ -9,16 +9,20 @@ import {
 } from "@mui/material";
 
 export default function RecipePreview(props) {
-  const { title } = props.recipe;
+  const { title, image, description } = props.recipe;
   return (
     <Card>
       <CardActionArea>
-        <CardMedia sx={{ height: "200px" }} title="Recipe" image=""></CardMedia>
+        <CardMedia
+          sx={{ height: "200px" }}
+          title="Recipe"
+          image={image}
+        ></CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5">
             {title}
           </Typography>
-          <Typography variant="body2">Description</Typography>
+          <Typography variant="body2">{description}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>

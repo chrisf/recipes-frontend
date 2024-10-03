@@ -8,7 +8,10 @@ const GET_RECIPES = gql`
     recipes {
       title
       url
-      content
+      image
+      description
+      directions
+      ingredients
       author {
         name
       }
