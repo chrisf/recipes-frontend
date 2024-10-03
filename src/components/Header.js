@@ -5,21 +5,21 @@ import {
   Box,
   Container,
   IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
   Toolbar,
   Typography,
 } from "@mui/material";
 
-import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 
 export default function Header() {
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ mb: "20px" }}>
       <Container maxWidth="lg">
         <Toolbar disableGutters>
-          <IconButton size="lg" edge="start" color="inherit" sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
           <Typography
             variant="h6"
             component={Link}
@@ -28,6 +28,16 @@ export default function Header() {
           >
             Recipes
           </Typography>
+          <List>
+            <ListItem>
+              <ListItemButton component={Link} href="/recipe/new">
+                <ListItemText sx={{ textDecoration: "none", color: "inherit" }}>
+                  Add recipe
+                </ListItemText>
+              </ListItemButton>
+            </ListItem>
+          </List>
+
           <Box sx={{ flexGrow: 0 }}>
             <IconButton sx={{ p: 0 }}>
               <Avatar alt="" />
