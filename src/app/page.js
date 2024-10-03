@@ -6,6 +6,7 @@ import { Container, Grid2 as Grid } from "@mui/material";
 const GET_RECIPES = gql`
   query Query {
     recipes {
+      id
       title
       url
       image

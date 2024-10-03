@@ -7,18 +7,19 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import Link from "next/link";
 
 export default function RecipePreview(props) {
-  const { title, image, description } = props.recipe;
+  const { id, title, image, description } = props.recipe;
   return (
     <Card>
-      <CardActionArea>
+      <CardActionArea component={Link} href={`/recipe/${id}`}>
         <CardMedia
           sx={{ height: "200px" }}
           title="Recipe"
           image={image}
         ></CardMedia>
-        <CardContent>
+        <CardContent sx={{ height: "200px" }}>
           <Typography gutterBottom variant="h5">
             {title}
           </Typography>
