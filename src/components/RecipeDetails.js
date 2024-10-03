@@ -1,6 +1,13 @@
 import { Box, Typography } from "@mui/material";
 
 export default function RecipeDetails(props) {
+  if (props.recipe === null) {
+    return (
+      <Box>
+        <Typography variant="h5">Recipe not found</Typography>
+      </Box>
+    );
+  }
   const { title, description, ingredients, directions, image } = props.recipe;
 
   return (
