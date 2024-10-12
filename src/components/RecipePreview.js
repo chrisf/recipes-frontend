@@ -7,8 +7,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import Link from "next/link";
-
+import { Link } from "react-router-dom";
 const truncateText = (text, maxLength) => {
   return text.length > maxLength ? text.substr(0, maxLength - 1) + "..." : text;
 };
@@ -19,7 +18,7 @@ export default function RecipePreview(props) {
   const { id, title, image, description, url } = props.recipe;
   return (
     <Card>
-      <CardActionArea component={Link} href={`/recipe/${id}`}>
+      <CardActionArea component={Link} to={`/recipe/${id}`}>
         <CardMedia
           sx={{ height: "200px" }}
           title="Recipe"
@@ -35,19 +34,14 @@ export default function RecipePreview(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button
-          size="sm"
-          color="primary"
-          component={Link}
-          href={`/recipe/${id}`}
-        >
+        <Button size="sm" color="primary" component={Link} to={`/recipe/${id}`}>
           Read
         </Button>
         <Button
           size="sm"
           color="primary"
           component={Link}
-          href={url}
+          to={url}
           target="_blank"
         >
           Visit original site

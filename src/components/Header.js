@@ -1,4 +1,3 @@
-"use client";
 import {
   AppBar,
   Avatar,
@@ -12,8 +11,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -23,14 +21,14 @@ export default function Header() {
           <Typography
             variant="h6"
             component={Link}
-            href="/"
+            to="/"
             sx={{ flexGrow: 1, textDecoration: "none", color: "inherit" }}
           >
             Recipes
           </Typography>
           <List>
             <ListItem>
-              <ListItemButton component={Link} href="/recipe/new">
+              <ListItemButton component={Link} to="/recipe/new">
                 <ListItemText sx={{ textDecoration: "none", color: "inherit" }}>
                   Add recipe
                 </ListItemText>

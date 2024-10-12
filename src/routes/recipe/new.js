@@ -1,9 +1,7 @@
-"use client";
-
 import { gql, useMutation } from "@apollo/client";
 import { Box, Button, Container, Stack, TextField } from "@mui/material";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CREATE_RECIPE = gql`
   mutation NewRecipe(
@@ -27,7 +25,7 @@ const CREATE_RECIPE = gql`
   }
 `;
 
-export default function NewRecipe() {
+export default function NewRecipePage() {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [image, setImage] = useState("");
@@ -36,7 +34,8 @@ export default function NewRecipe() {
   const [directions, setDirections] = useState("");
 
   const [addRecipe, { data, loading, error }] = useMutation(CREATE_RECIPE);
-  const router = useRouter();
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -55,7 +54,7 @@ export default function NewRecipe() {
       },
     });
 
-    router.push(`/recipe/${recipe.data.newRecipe.id}`);
+    navigate(`/recipe/${recipe.data.newRecipe.id}`);
   };
 
   return (

@@ -1,8 +1,7 @@
-"use client";
-
-import RecipeDetails from "@/components/RecipeDetails";
 import { gql, useQuery } from "@apollo/client";
 import { Container } from "@mui/system";
+import { useParams } from "react-router-dom";
+import RecipeDetails from "../../components/RecipeDetails";
 
 const GET_RECIPE = gql`
   query Query($recipeId: ID) {
@@ -21,7 +20,8 @@ const GET_RECIPE = gql`
   }
 `;
 
-export default function RecipeDetailPage({ params }) {
+export default function RecipeDetailPage() {
+  const params = useParams();
   const recipeId = Number(params.id);
   const { loading, error, data } = useQuery(GET_RECIPE, {
     variables: { recipeId: recipeId },
